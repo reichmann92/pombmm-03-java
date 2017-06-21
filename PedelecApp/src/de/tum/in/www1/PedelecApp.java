@@ -48,21 +48,23 @@ public class PedelecApp extends Application {
 		reserveButton.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		    	System.out.println("Reserve Button clicked");
-                LocalDate XX1 = datePicker.getValue();
-                String x_1 = timeTextField.getText(), x_2 = x_1, x_3;
-                x_2 = pedelecNametext.getText();
-                String x_4 = x_2;
-                x_3 = "Please confirm your reservation of " + x_2 + " at " +
-                XX1.format(DateTimeFormatter.ISO_LOCAL_DATE) + " " + timeTextField.getText();
-                ButtonType x__4 = new Alert(Alert.AlertType.CONFIRMATION, "" +
-               	x_3).showAndWait().get();
-                if (x__4 == ButtonType.OK) {
+                
+                LocalDate date_x1 = datePicker.getValue();
+                String text_1 = timeTextField.getText(), text_2 = text_1, text_3;
+                text_2 = pedelecNametext.getText();
+                String text_4 = text_2;
+                text_3 = "Please confirm your reservation of " + text_2 + " at " +
+                
+                date_x1.format(DateTimeFormatter.ISO_LOCAL_DATE) + " " + timeTextField.getText();
+                ButtonType btn_4 = new Alert(Alert.AlertType.CONFIRMATION, "" +
+               	text_3).showAndWait().get();
+               
+                if (btn_4 == ButtonType.OK) {
                     Reservation r33 = new Reservation(), r34;
-                    r33.setBike(x_4);
-                    r33.setStartDate(XX1);
+                    r33.setBike(text_4);
+                    r33.setStartDate(date_x1);
                     r33.setStartTime(timeTextField.getText().concat(""));
-                    r34 = r33;
-                    r34.save();
+                    r33.save();
                     System.out.println("Reservation confirmed");
                 }
 		    }
